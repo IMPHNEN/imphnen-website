@@ -1,48 +1,116 @@
-# Astro Starter Kit: Basics
+# IMPHNEN Website
 
-```sh
-npm create astro@latest -- --template basics
+## Requirements
+
+- NPM (WAJIB PAKE NPM) v10.9.0
+- NodeJS (WAJIB PAKE NODEJS) v22.11.0
+
+## Recomended Tools
+
+- Text Editor ( VSCode )
+- ESLint Plugin (WAJIB PAKE ESLINT)
+- Prettier Plugin (WAJIB PAKE PRETTIER)
+
+## Branching Rule
+
+- `main` branch is the production branch
+- `staging` branch is the staging branch
+- `develop` branch is the development branch
+
+if you want to create a new feature, please create a new branch from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `feature/feature-name`
+
+if you want to create a new bugfix, please create a new branch from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `bugfix/bugfix-name`
+
+if you want to create a new thing that not very necessary (rename file, rename folder, change color), please create a new branch from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `chore/chore-name`
+
+if you want to create a new release, please create a new branch from `main` branch and push to `main` branch
+
+with following naming convention:
+
+- `release/release-name`
+
+## Commiting Rule
+
+if you want to create a new feature, please create a new commit from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `chore: chore name`
+
+if you want to create a new thing that not very necessary (rename file, rename folder, change color), please create a new commit from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `feature: feature name`
+
+if you want to create a new bugfix, please create a new commit from `dev` branch and push to `dev` branch
+
+with following naming convention:
+
+- `bugfix: bugfix name`
+
+## Setup and Run Project
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/IMPHNEN/imphnen-website.git
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+2. Install dependencies
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. Setup .env
 
-## 🧞 Commands
+```bash
+cp .env.example .env
+```
 
-All commands are run from the root of the project, from a terminal:
+## Build Project
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Install dependencies
 
-## 👀 Want to learn more?
+```bash
+npm run build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+2. Run production
+
+```bash
+npm run preview
+```
+
+## Build with Docker
+
+1. Build the image
+
+```bash
+docker build -t imphnen-website .
+```
+
+2. Run the container
+
+```bash
+docker run -p 3000:3000 imphnen-website
+```
+
+3. Run with compose
+
+```bash
+docker compose up -d
+```

@@ -7,10 +7,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint . --fix",
+    "lint": "eslint . --fix --ignore-pattern 'dist/*' --ignore-pattern '*.astro'",
     "format": "prettier --write . --plugin=astro",
     "lint:staged": "lint-staged",
     "prepare": "husky"
+  },
+  "packageManager": "npm@10.9.0",
+  "engines": {
+    "node": "22.11.0",
+    "npm": "10.9.0"
   },
   "dependencies": {
     "astro": "^5.1.8"

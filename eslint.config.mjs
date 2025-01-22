@@ -2,6 +2,13 @@ import eslintPluginAstro from "eslint-plugin-astro";
 export default [
   ...eslintPluginAstro.configs.recommended,
   {
+    ignores: [
+      "**/dist",
+      "**/dist/~partytown",
+      "**/node_modules",
+      "**/public",
+      "**/.astro",
+    ],
     rules: {
       "no-unused-vars": "error",
       "no-undef": "error",
