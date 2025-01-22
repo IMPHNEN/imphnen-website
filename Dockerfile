@@ -8,11 +8,12 @@ COPY package*.json ./
 
 RUN npm install
 
-# Copy the rest of the application code
 COPY . .
 
 RUN npm run build
 
+RUN npm install -g serve
+
 EXPOSE 3000
 
-CMD ["npm", "run", "preview"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
