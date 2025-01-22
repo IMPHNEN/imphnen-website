@@ -27,9 +27,6 @@ jobs:
             echo "Pulling latest changes..."
             cd /var/www/imphnen-website
             git pull origin main
-
-            echo "Set up environment..."
-            nvm use 22.11.0
             
             echo "Building the application..."
             npm run build
