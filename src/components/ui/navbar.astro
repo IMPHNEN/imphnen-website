@@ -1,0 +1,49 @@
+---
+const links = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<nav class="bg-white text-gray-700 w-full flex items-center justify-center">
+  <div class="px-4 py-4 w-full max-w-7xl flex justify-between items-center">
+    <a href="/" class="text-lg font-semibold">IMPHNEN</a>
+    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <ul id="menu" class="hidden md:flex space-x-6">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-gray-400">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>
