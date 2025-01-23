@@ -1,0 +1,53 @@
+name: Up to prod
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+
+      - name: Increment Version
+        run: |
+          echo "Incrementing application version..."
+          current_version=$(jq -r '.version' package.json)
+          new_version=$(echo $current_version | awk -F. '{$NF+=1; OFS="."; print $0}')
+          jq ".version=\"$new_version\"" package.json > temp.json && mv temp.json package.json
+          echo "New version: $new_version"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json
+          git commit -m "ci: Bump version to $new_version"
+          git push origin main
+
+      - name: Deploy Application
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} << 'EOF'
+            set -e
+
+            echo "Checkout to main branch..."
+            cd /var/www/imphnen-website
+            git checkout main
+
+            echo "Pulling latest changes..."
+            git pull origin main
+            
+            echo "Building the application..."
+            npm install
+            npm run build
+            
+            echo "Deployment complete!"
+          EOF
