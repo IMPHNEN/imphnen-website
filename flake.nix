@@ -17,9 +17,9 @@
       }: {
         packages = {
           nodejs16-darwin-arm64 = pkgs.stdenv.mkDerivation {
-            name = "nodejs22.6.0-darwin-arm64";
+            name = "nodejs22.11.0-darwin-arm64";
             src = pkgs.fetchurl {
-              url = "https://nodejs.org/dist/v22.6.0/node-v22.6.0-darwin-arm64.tar.gz";
+              url = "https://nodejs.org/dist/v22.11.0/node-v22.11.0-darwin-arm64.tar.gz";
               sha256 = "sha256-nqYHZoB808OjrWrUGfmJGNY0pg/o3qW5wHUH7Q8XbUw=";
             };
             installPhase = ''
@@ -30,9 +30,9 @@
           };
 
           nodejs16-darwin-x64 = pkgs.stdenv.mkDerivation {
-            name = "nodejs22.6.0-darwin-x64";
+            name = "nodejs22.11.0-darwin-x64";
             src = pkgs.fetchurl {
-              url = "https://nodejs.org/dist/v22.6.0/node-v22.6.0-darwin-x64.tar.gz";
+              url = "https://nodejs.org/dist/v22.11.0/node-v22.11.0-darwin-x64.tar.gz";
               sha256 = "sha256-N+CajPI1LzQNEgTGFUBY2BNi/vTsSIsBl7LONrPwNno=";
             };
             installPhase = ''
@@ -43,10 +43,10 @@
           };
 
           nodejs16-linux-x64 = pkgs.stdenv.mkDerivation {
-            name = "nodejs22.6.0-linux-x64";
+            name = "nodejs22.11.0-linux-x64";
             src = pkgs.fetchurl {
-              url = "https://nodejs.org/dist/v22.6.0/node-v22.6.0-linux-x64.tar.gz";
-              sha256 = "sha256-8vTMvLwKRD5frevRFJoi+WCH7AnO9S/zQ6Fe6DUgbZY=";
+              url = "https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-x64.tar.gz";
+              sha256 = "sha256-T4Yrq1IDmDXvvmE7UyI4tuTd6Y0TmjTmkjGT4HNDixM=";
             };
             installPhase = ''
               echo "installing nodejs"
@@ -56,9 +56,9 @@
           };
 
           nodejs16-linux-arm64 = pkgs.stdenv.mkDerivation {
-            name = "nodejs22.6.0-linux-arm64";
+            name = "nodejs22.11.0-linux-arm64";
             src = pkgs.fetchurl {
-              url = "https://nodejs.org/dist/v22.6.0/node-v22.6.0-linux-arm64.tar.gz";
+              url = "https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-arm64.tar.gz";
               sha256 = "sha256-RuOFf1VSq9NtlUg4DXlbBDo87sJQTmn+GnVPp2AS2q8=";
             };
             installPhase = ''
