@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import preview from "../../assets/konsultasi 2.png";
+import medal from "../../assets/medal.png";
+---
+
+<!-- About -->
+<section id="about" class="w-full max-w-8xl px-6">
+  <!-- Profile progress -->
+  <div class="flex gap-4 align-middle mb-24">
+    <!-- Name & progress bar -->
+    <div class="flex-grow flex flex-col justify-between py-3 me-4">
+      <div>
+        <div class="font-semibold text-white text-3xl">Greg Han</div>
+        <div class="text-secondary mt-3">
+          this is a description please don't delete
+        </div>
+      </div>
+      <div>
+        <div aria-hidden="true" class="h-2 bg-[#d9d9d9] rounded-full">
+          <div class="w-[75%] bg-purple h-2 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Day progress -->
+    <div
+      class="flex flex-col justify-center text-center rounded-3xl bg-purple text-white w-36 h-36"
+    >
+      <div>Day progress</div>
+      <div class="text-5xl">80</div>
+    </div>
+    <!-- Medal  -->
+    <div
+      class="flex rounded-3xl bg-grey-400 w-80 justify-center align-center gap-2"
+    >
+      <Image src={medal} alt="" class="w-[69px] h-[74px] self-center" />
+      <div class="self-center">
+        <div class="font-bold text-white text-2xl">1st Place</div>
+        <div class="text-[#f8f8f8] text-sm">Consistency move future</div>
+        <a
+          class="inline-block text-[#d3d2d2] text-sm underline hover:cursor-pointer"
+        >
+          see all leaderboard
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultation -->
+  <div class="my-12">
+    <!-- Heading -->
+    <div class="text-white items-center flex gap-16 mb-8">
+      <h2 class="text-5xl font-semibold">Consultation</h2>
+      <div class="text-xl leading-loose">
+        AI consultations to clarify and achieve your life goals with
+        personalized guidance and actionable insights for growth.
+      </div>
+    </div>
+    <!-- Preview image -->
+    <div class="flex justify-center">
+      <Image
+        src={preview}
+        alt="Preview Konsultasi"
+        class="rounded-xl size-full"
+      />
+    </div>
+  </div>
+</section>
