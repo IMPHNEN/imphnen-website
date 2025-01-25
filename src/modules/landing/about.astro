@@ -5,28 +5,38 @@
 <!-- About -->
 <section id="about">
   <!-- Profile progress -->
-  <div class="flex align-middle">
+  <div class="flex gap-4 align-middle mb-24">
     <!-- Name & progress bar -->
-    <div>
-      <div class="text-white text-3xl">Greg Han</div>
-      <div class="text-secondary">
-        this is a description please don't delete
+    <div class="flex-grow flex flex-col justify-between py-3 me-4">
+      <div>
+        <div class="font-semibold text-white text-3xl">Greg Han</div>
+        <div class="text-secondary mt-3">
+          this is a description please don't delete
+        </div>
       </div>
-      <div aria-hidden="true" class="h-2 bg-[#d9d9d9] rounded-full">
-        <div class="w-[75%] bg-purple h-2 rounded-full"></div>
+      <div>
+        <div aria-hidden="true" class="h-2 bg-[#d9d9d9] rounded-full">
+          <div class="w-[75%] bg-purple h-2 rounded-full"></div>
+        </div>
       </div>
     </div>
     <!-- Day progress -->
     <div
-      class="flex flex-col justify-center text-center rounded-3xl bg-purple text-white aspect-square px-3 py-4"
+      class="flex flex-col justify-center text-center rounded-3xl bg-purple text-white w-36 h-36"
     >
       <div>Day progress</div>
       <div class="text-5xl">80</div>
     </div>
     <!-- Medal  -->
-    <div class="flex rounded-3xl bg-grey-400 px-3 py-4">
-      <!-- <Icon name="ic-medal" /> -->
-      <div>
+    <div
+      class="flex rounded-3xl bg-grey-400 w-80 justify-center align-center gap-2"
+    >
+      <img
+        src="images/medal.png"
+        alt=""
+        class="w-[69px] h-[74px] self-center"
+      />
+      <div class="self-center">
         <div class="font-bold text-white text-2xl">1st Place</div>
         <div class="text-[#f8f8f8] text-sm">Consistency move future</div>
         <a
@@ -36,5 +46,25 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- Consultation -->
+  <div class="my-12">
+    <!-- Heading -->
+    <div class="text-white align-center grid grid-cols-6 mb-8">
+      <h2 class="text-5xl font-semibold col-span-2 self-center">
+        Consultation
+      </h2>
+      <div class="text-xl col-span-4 leading-loose">
+        AI consultations to clarify and achieve your life goals with
+        personalized<br /> guidance and actionable insights for growth.
+      </div>
+    </div>
+    <!-- Preview image -->
+    <img
+      src="images/konsultasi 2.png"
+      alt="Konsultasi"
+      class="rounded-xl w-100"
+    />
   </div>
 </section>
