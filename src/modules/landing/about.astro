@@ -1,9 +1,11 @@
 ---
-// import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import preview from "../../assets/konsultasi 2.png";
+import medal from "../../assets/medal.png";
 ---
 
 <!-- About -->
-<section id="about">
+<section id="about" class="w-full max-w-8xl px-6">
   <!-- Profile progress -->
   <div class="flex gap-4 align-middle mb-24">
     <!-- Name & progress bar -->
@@ -31,11 +33,7 @@
     <div
       class="flex rounded-3xl bg-grey-400 w-80 justify-center align-center gap-2"
     >
-      <img
-        src="images/medal.png"
-        alt=""
-        class="w-[69px] h-[74px] self-center"
-      />
+      <Image src={medal} alt="" class="w-[69px] h-[74px] self-center" />
       <div class="self-center">
         <div class="font-bold text-white text-2xl">1st Place</div>
         <div class="text-[#f8f8f8] text-sm">Consistency move future</div>
@@ -51,20 +49,20 @@
   <!-- Consultation -->
   <div class="my-12">
     <!-- Heading -->
-    <div class="text-white align-center grid grid-cols-6 mb-8">
-      <h2 class="text-5xl font-semibold col-span-2 self-center">
-        Consultation
-      </h2>
-      <div class="text-xl col-span-4 leading-loose">
+    <div class="text-white items-center flex gap-16 mb-8">
+      <h2 class="text-5xl font-semibold">Consultation</h2>
+      <div class="text-xl leading-loose">
         AI consultations to clarify and achieve your life goals with
-        personalized<br /> guidance and actionable insights for growth.
+        personalized guidance and actionable insights for growth.
       </div>
     </div>
     <!-- Preview image -->
-    <img
-      src="images/konsultasi 2.png"
-      alt="Konsultasi"
-      class="rounded-xl w-100"
-    />
+    <div class="flex justify-center">
+      <Image
+        src={preview}
+        alt="Preview Konsultasi"
+        class="rounded-xl size-full"
+      />
+    </div>
   </div>
 </section>
