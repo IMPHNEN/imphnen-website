@@ -2,10 +2,11 @@ import { defineConfig, envField } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
+import icon from "astro-icon";
 
 export default defineConfig({
   server: {
-    port: process.env.PORT || 3000,
+    port: Number(process.env.PORT) || 3000,
   },
   env: {
     schema: {
@@ -31,6 +32,9 @@ export default defineConfig({
   },
   site: "https://imphnen.dev",
   integrations: [
+    icon({
+      iconDir: "public/icons",
+    }),
     tailwind(),
     sitemap({
       changefreq: "weekly",

@@ -18,7 +18,9 @@
     "npm": "10.9.0"
   },
   "dependencies": {
-    "astro": "^5.1.8"
+    "@iconify-json/mdi": "^1.2.3",
+    "astro": "^5.1.8",
+    "astro-icon": "^1.1.5"
   },
   "devDependencies": {
     "@astrojs/partytown": "^2.1.3",

@@ -11,12 +11,12 @@ import Navbar from "@/components/ui/navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <title>IMPHNEN - Website</title>
   </head>
-  <body>
+  <body class="bg-black flex flex-col items-center">
     <Navbar />
-    <main class="w-full flex justify-center items-center">
-      <div class="w-full flex items-center max-w-7xl px-4">
-        <slot />
-      </div>
+    <main
+      class="w-full flex justify-center items-center bg-black h-auto flex flex-col max-w-8xl"
+    >
+      <slot />
     </main>
   </body>
 </html>
