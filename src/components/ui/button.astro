@@ -1,0 +1,15 @@
+---
+export interface Props {
+  label: string;
+  size?: string;
+  href?: string;
+}
+const { label, size = "text-2xl", href } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`inline-block bg-primary px-16 py-5 font-semibold rounded-xl ${size} hover:bg-blue-700 active:scale-95 transition duration-150`}
+>
+  {label}
+</a>
