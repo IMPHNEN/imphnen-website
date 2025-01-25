@@ -5,6 +5,10 @@
 - NPM (WAJIB PAKE NPM) v10.9.0
 - NodeJS (WAJIB PAKE NODEJS) v22.11.0
 
+## Requirements Additional
+
+- Python (WAJIB PIPENV) 3.9 version
+
 ## Recomended Tools
 
 - Text Editor ( VSCode )
