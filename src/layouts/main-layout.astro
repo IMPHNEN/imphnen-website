@@ -1,5 +1,6 @@
 ---
 import Navbar from "@/components/ui/navbar.astro";
+import Footer from "@/components/ui/footer.astro";
 ---
 
 <!doctype html>
@@ -14,9 +15,10 @@ import Navbar from "@/components/ui/navbar.astro";
   <body class="bg-black flex flex-col items-center">
     <Navbar />
     <main
-      class="w-full flex justify-center items-center bg-black h-auto flex flex-col max-w-8xl"
+      class="w-full flex justify-center items-center bg-black h-auto flex-col max-w-8xl"
     >
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
