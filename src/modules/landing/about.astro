@@ -1,7 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import preview from "../../assets/konsultasi 2.png";
-import medal from "../../assets/medal.png";
 ---
 
 <!-- About -->
@@ -33,12 +31,18 @@ import medal from "../../assets/medal.png";
     <div
       class="flex rounded-3xl bg-grey-400 w-80 justify-center align-center gap-2"
     >
-      <Image src={medal} alt="" class="w-[69px] h-[74px] self-center" />
+      <Image
+        src="/assets/medal.png"
+        alt=""
+        class="self-center"
+        width={69}
+        height={74}
+      />
       <div class="self-center">
         <div class="font-bold text-white text-2xl">1st Place</div>
         <div class="text-[#f8f8f8] text-sm">Consistency move future</div>
         <a
-          class="inline-block text-[#d3d2d2] text-sm underline hover:cursor-pointer"
+          class="inline-block text-[#d3d2d2] text-sm underline mt-3 hover:cursor-pointer"
         >
           see all leaderboard
         </a>
@@ -59,9 +63,11 @@ import medal from "../../assets/medal.png";
     <!-- Preview image -->
     <div class="flex justify-center">
       <Image
-        src={preview}
+        src="/assets/konsultasi 2.png"
         alt="Preview Konsultasi"
         class="rounded-xl size-full"
+        width={1060}
+        height={531}
       />
     </div>
   </div>
