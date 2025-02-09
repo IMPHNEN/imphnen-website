@@ -27,3 +27,9 @@ pnpm-debug.log*
 # nix
 .direnv
 .envrc
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
