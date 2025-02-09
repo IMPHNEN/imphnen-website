@@ -6,34 +6,45 @@ on:
       - develop
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.11.0'
 
-      - name: Deploy Application
-        run: |
-          ssh -i ~/.ssh/id_rsa ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} << 'EOF'
-            set -e
+    - name: Install dependencies
+      run: npm install
 
-            echo "Checkout to main branch..."
-            cd /var/www/imphnen-website-develop
+    - name: Build the app
+      run: npm run build
 
-            echo "Pulling latest changes..."
-            git pull origin develop
-            
-            echo "Building the application..."
-            npm install
-            npm run build
-            
-            echo "Deployment complete!"
-          EOF
+    - name: Ensure deployment directory exists on VPS
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_IP }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: ${{ secrets.VPS_PORT }}
+        script: |
+          set -e
+          echo "Ensuring directory /var/www/imphnen-website-develop/ exists"
+          sudo mkdir -p /var/www/imphnen-website-develop/
+          sudo chown ${{ secrets.VPS_USER }} /var/www/imphnen-website-develop/
+
+    - name: Upload built app to VPS
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_IP }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: ${{ secrets.VPS_PORT }}
+        source: ./dist/*
+        target: /var/www/imphnen-website-develop/
+        rm: true
+        overwrite: true

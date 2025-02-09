@@ -1,9 +1,9 @@
-name: Up to Staging
+name: Up to Production
 
 on:
   push:
     branches:
-      - staging
+      - main
 
 jobs:
   build-and-deploy:
@@ -33,9 +33,9 @@ jobs:
         port: ${{ secrets.VPS_PORT }}
         script: |
           set -e
-          echo "Ensuring directory /var/www/imphnen-website-staging/ exists"
-          sudo mkdir -p /var/www/imphnen-website-staging/
-          sudo chown ${{ secrets.VPS_USER }} /var/www/imphnen-website-staging/
+          echo "Ensuring directory /var/www/imphnen-website/ exists"
+          sudo mkdir -p /var/www/imphnen-website/
+          sudo chown ${{ secrets.VPS_USER }} /var/www/imphnen-website/
 
     - name: Upload built app to VPS
       uses: appleboy/scp-action@v0.1.7
@@ -45,6 +45,6 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         port: ${{ secrets.VPS_PORT }}
         source: ./dist/*
-        target: /var/www/imphnen-website-staging/
+        target: /var/www/imphnen-website/
         rm: true
         overwrite: true
